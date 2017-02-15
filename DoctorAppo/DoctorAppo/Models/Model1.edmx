@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="doctorappoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'doctorappo.dbo.feedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="40" />
+          <Property Name="contact" Type="bigint" />
+          <Property Name="email" Type="varchar" MaxLength="30" />
+          <Property Name="country" Type="char" MaxLength="40" />
+          <Property Name="feedback" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Logi">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pwd" Type="varchar" MaxLength="30" />
+          <Property Name="UserRole" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tblPatientDetails">
+          <Key>
+            <PropertyRef Name="iId" />
+          </Key>
+          <Property Name="iId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cName" Type="varchar" MaxLength="30" />
+          <Property Name="cUserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="vPassword" Type="varchar" MaxLength="30" />
+          <Property Name="vAddress" Type="varchar" MaxLength="60" />
+          <Property Name="dDateOfBirth" Type="date" />
+          <Property Name="cGender" Type="char" MaxLength="10" />
+          <Property Name="vEmail" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="iPhone" Type="bigint" Nullable="false" />
+          <Property Name="Security_Question" Type="char" MaxLength="30" />
+          <Property Name="Answer" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="doctorappoModelStoreContainer">
+          <EntitySet Name="Logi" EntityType="Self.Logi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPatientDetails" EntityType="Self.tblPatientDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [feedback].[id] AS [id], 
+    [feedback].[name] AS [name], 
+    [feedback].[contact] AS [contact], 
+    [feedback].[email] AS [email], 
+    [feedback].[country] AS [country], 
+    [feedback].[feedback] AS [feedback]
+    FROM [dbo].[feedback] AS [feedback]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="doctorappoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Logi">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pwd" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserRole" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblPatientDetail">
+          <Key>
+            <PropertyRef Name="iId" />
+          </Key>
+          <Property Name="iId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cUserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="vAddress" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="dDateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="cGender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="vEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iPhone" Type="Int64" Nullable="false" />
+          <Property Name="Security_Question" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Answer" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="Int64" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="feedback1" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="doctorappoEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Logis" EntityType="Self.Logi" />
+          <EntitySet Name="tblPatientDetails" EntityType="Self.tblPatientDetail" />
+          <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="doctorappoModelStoreContainer" CdmEntityContainer="doctorappoEntities4">
+          <EntitySetMapping Name="Logis">
+            <EntityTypeMapping TypeName="doctorappoModel.Logi">
+              <MappingFragment StoreEntitySet="Logi">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPatientDetails">
+            <EntityTypeMapping TypeName="doctorappoModel.tblPatientDetail">
+              <MappingFragment StoreEntitySet="tblPatientDetails">
+                <ScalarProperty Name="iId" ColumnName="iId" />
+                <ScalarProperty Name="cName" ColumnName="cName" />
+                <ScalarProperty Name="cUserName" ColumnName="cUserName" />
+                <ScalarProperty Name="vPassword" ColumnName="vPassword" />
+                <ScalarProperty Name="vAddress" ColumnName="vAddress" />
+                <ScalarProperty Name="dDateOfBirth" ColumnName="dDateOfBirth" />
+                <ScalarProperty Name="cGender" ColumnName="cGender" />
+                <ScalarProperty Name="vEmail" ColumnName="vEmail" />
+                <ScalarProperty Name="iPhone" ColumnName="iPhone" />
+                <ScalarProperty Name="Security_Question" ColumnName="Security_Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedbacks">
+            <EntityTypeMapping TypeName="doctorappoModel.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="feedback1" ColumnName="feedback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
