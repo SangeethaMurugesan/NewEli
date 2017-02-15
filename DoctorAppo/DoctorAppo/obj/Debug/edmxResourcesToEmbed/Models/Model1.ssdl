@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="doctorappoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'doctorappo.dbo.feedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="40" />
+    <Property Name="contact" Type="bigint" />
+    <Property Name="email" Type="varchar" MaxLength="30" />
+    <Property Name="country" Type="char" MaxLength="40" />
+    <Property Name="feedback" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <EntityType Name="Logi">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pwd" Type="varchar" MaxLength="30" />
+    <Property Name="UserRole" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tblPatientDetails">
+    <Key>
+      <PropertyRef Name="iId" />
+    </Key>
+    <Property Name="iId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cName" Type="varchar" MaxLength="30" />
+    <Property Name="cUserName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="vPassword" Type="varchar" MaxLength="30" />
+    <Property Name="vAddress" Type="varchar" MaxLength="60" />
+    <Property Name="dDateOfBirth" Type="date" />
+    <Property Name="cGender" Type="char" MaxLength="10" />
+    <Property Name="vEmail" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="iPhone" Type="bigint" Nullable="false" />
+    <Property Name="Security_Question" Type="char" MaxLength="30" />
+    <Property Name="Answer" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="doctorappoModelStoreContainer">
+    <EntitySet Name="Logi" EntityType="Self.Logi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPatientDetails" EntityType="Self.tblPatientDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="feedback" EntityType="Self.feedback" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [feedback].[id] AS [id], 
+    [feedback].[name] AS [name], 
+    [feedback].[contact] AS [contact], 
+    [feedback].[email] AS [email], 
+    [feedback].[country] AS [country], 
+    [feedback].[feedback] AS [feedback]
+    FROM [dbo].[feedback] AS [feedback]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

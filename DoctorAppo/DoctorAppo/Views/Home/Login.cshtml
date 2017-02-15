@@ -1,0 +1,85 @@
+﻿@model DoctorAppo.Models.Logi 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Login Form</h1>
+<style>
+    .form {
+        margin: auto;
+        margin-top: 80px;
+        max-width: 480px;
+        padding: 40px;
+        background: #dbe5e4;
+        opacity: 0.8;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .lock {
+        font-size: 100px;
+    }
+
+    body {
+        background-image: url('../../2016_mercedes-benz_e-class_overseas_05.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+<body>
+
+    <center>
+        <div class="container">
+            @using (Html.BeginForm(new { @class = "form" }))
+            {
+                <div class="header">
+                    <span class="glyphicon glyphicon-lock lock" aria-hidden="true"></span>
+                </div>
+
+                <div class="btn-group btn-group-justified">
+                    <a href="#" class="btn btn-primary">USER</a>
+                    <a href="#" class="btn btn-primary">ADMIN</a>
+
+                </div>
+                <div>
+                    <h3>Please enter your credentials</h3>
+                </div>
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your UserID" } })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Pwd, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your Password",type="password" } })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.UserRole.ToString().ToLower(), new { htmlAttributes = new { @class = "form-control", placeholder = "Select your role"} })
+                    @*@Html.DropDownListFor(model => model.UserRole, new SelectList(Enum.GetValues(typeof(DoctorAppo.Models.Role))),
+                    "Select Your Role",
+                    new { @class = "form-control" })​*@
+                </div>
+                @*<button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>*@
+                <input value="Submit" type="submit" class="btn btn-primary btn-lg btn-block ">
+                @*<div>
+                    @Html.ActionLink("FORGOT PASSWORD?", "")
+                </div>
+
+                <div>
+                    @Html.ActionLink("New User..Register Here", "Create", "MyDetails")
+                </div>*@
+            }
+        </div>
+    </center>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+
+

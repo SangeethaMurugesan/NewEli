@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="doctorappoModelStoreContainer" CdmEntityContainer="doctorappoEntities4">
+    <EntitySetMapping Name="Logis">
+      <EntityTypeMapping TypeName="doctorappoModel.Logi">
+        <MappingFragment StoreEntitySet="Logi">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPatientDetails">
+      <EntityTypeMapping TypeName="doctorappoModel.tblPatientDetail">
+        <MappingFragment StoreEntitySet="tblPatientDetails">
+          <ScalarProperty Name="iId" ColumnName="iId" />
+          <ScalarProperty Name="cName" ColumnName="cName" />
+          <ScalarProperty Name="cUserName" ColumnName="cUserName" />
+          <ScalarProperty Name="vPassword" ColumnName="vPassword" />
+          <ScalarProperty Name="vAddress" ColumnName="vAddress" />
+          <ScalarProperty Name="dDateOfBirth" ColumnName="dDateOfBirth" />
+          <ScalarProperty Name="cGender" ColumnName="cGender" />
+          <ScalarProperty Name="vEmail" ColumnName="vEmail" />
+          <ScalarProperty Name="iPhone" ColumnName="iPhone" />
+          <ScalarProperty Name="Security_Question" ColumnName="Security_Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="doctorappoModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="feedback1" ColumnName="feedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

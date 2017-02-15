@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="doctorappoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'doctorappo.dbo.feedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="40" />
+    <Property Name="contact" Type="bigint" />
+    <Property Name="email" Type="varchar" MaxLength="30" />
+    <Property Name="country" Type="char" MaxLength="40" />
+    <Property Name="feedback" Type="varchar" MaxLength="70" />
+  </EntityType>
+  <EntityContainer Name="doctorappoModel1StoreContainer">
+    <EntitySet Name="feedback" EntityType="Self.feedback" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [feedback].[id] AS [id], 
+    [feedback].[name] AS [name], 
+    [feedback].[contact] AS [contact], 
+    [feedback].[email] AS [email], 
+    [feedback].[country] AS [country], 
+    [feedback].[feedback] AS [feedback]
+    FROM [dbo].[feedback] AS [feedback]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

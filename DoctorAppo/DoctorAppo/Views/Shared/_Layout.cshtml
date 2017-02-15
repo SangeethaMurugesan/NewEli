@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html
+        {
+            overflow:scroll;
+        }
+.backgrd
+{
+    background-color:#16a085;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+    </style>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<script>
+        function open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidenav").style.width = "25%";
+            document.getElementById("mySidenav").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }*@
+   
+    @*</script>*@
+</head>
+<body>
+    
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="backgrd">
+                <div class="container">
+
+                    <div class="navbar-header">
+                        @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>*@
+
+
+                        @*<span style="display: none;color:white;font-size:x-large" onclick="#">☰</span>
+                            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div id="mySidenav" class="sidenav">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                            <a>@Html.ActionLink("Our Department", "Index", "Home")</a>
+                            <a>@Html.ActionLink("Top Doctors", "About", "Home")</a>
+                            <a>@Html.ActionLink("Patient Care", "Contact", "Home")</a>
+                            <a>@Html.ActionLink("News And Events", "Contact", "Home")</a>
+                            <a>@Html.ActionLink("Contact Us", "Contact", "Home")</a>
+                        </div>
+
+                        <ul class="nav navbar-nav">
+
+
+                            <li><span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                            <li style="color:white;text-align:center;padding-top:10px;padding-left:300px;font-size:x-large">&nbsp;&nbsp;Welcome to XYZ Global</li>
+                            <li style="background-color:#1fe4bd;margin-left:100px;">@Html.ActionLink("Book Appointments", "Index", "tblPatientDetails")</li>
+                            <li style="margin-top:-50px;margin-left:700px;padding-top:14px;padding-left:200px"><span class="fa fa-phone" style="font-size:18px;">Contact us:9986117139</span></li>
+                            <li style="background-color:#1fe4bd;margin-left:100px;">@Html.ActionLink("Login", "Login", "Home")</li>
+                        </ul>
+                        @*@Html.Partial("_LoginPartial")*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container body-content">
+            @RenderBody()
+
+        </div>
+        
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "20%";
+                    document.getElementById("mySidenav").style.display = "block";
+                    document.getElementById("openNav").style.display = 'none';
+                }
+
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("main").style.marginLeft = "10%";
+                    document.getElementById("mySidenav").style.display = "none";
+                    document.getElementById("openNav").style.display = "inline-block";
+
+                }
+            </script>
+            @*<hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿@model DoctorAppo.Models.tblPatientDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblPatientDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dDateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dDateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cGender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Security_Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Security_Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
